@@ -1,14 +1,10 @@
 import { Component } from "react";
 
 export default class HijoDeportes extends Component {
-    state = {
-        favorito: "",
-    };
+    
+    //CON ESTE METODO LLAMO A LOS PROPS Q SE PASARON EN EL PADRE Y LE DIGO Q EL FAVORITO ES EL NOMBRE
     mostrarFavorito = () => {
-        this.setState({
-            favorito: this.props.nombre,
-        });
-        return this.state.favorito;
+        this.props.seleccionarfavorito(this.props.nombre)
     };
 
     render() {
@@ -16,7 +12,6 @@ export default class HijoDeportes extends Component {
             <div>
                 <h3 style={{ color: "magenta" }}>Deporte: {this.props.nombre}</h3>
                 <button onClick={this.mostrarFavorito}>Selecionar favorito</button>
-                <h4 style={{ backgroundColor: "yellow" }}>Su deporte favorito es: {this.state.favorito}</h4>
             </div>
         );
     }
